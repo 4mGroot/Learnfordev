@@ -68,7 +68,7 @@ document.getElementById("resultTotal").innerHTML = "ราคารวม "+sum+
 //โปรแกรมทายหัวก้อย
 let round = prompt("ทายกี่รอบดี")
 var score1 =0
-for(var i = 0; i<round; i++){
+for(var i = 1; i<=round; i++){
     var answer =prompt("head or koy")
     var random_answer =""
     if(Math.floor(Math.random()*10) <= 5){
@@ -91,3 +91,11 @@ for(var i = 0; i<round; i++){
 }
 document.getElementById("round").innerHTML = "คุณเล่น "+round+" รอบ"
 document.getElementById("scoreTrue").innerHTML = "คุณถูก "+score1+" รอบ"
+
+function toCelsius()
+{
+    let fahrenheit = prompt("fahrenheit")
+    let value = (fahrenheit-32)*5/9
+    document.getElementById("answer-section").innerHTML =value
+}
+toCelsius()
