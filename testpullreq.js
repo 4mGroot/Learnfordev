@@ -7,9 +7,16 @@ console.log(x)
 console.log(x)
 //ลองเล่นคำสั่งที่ให้ผู้ใช้พิมลงมา
 let Lotto = prompt("กรอกเลขที่ต้องการซื้อ")
+let randomN = Math.floor(Math.random()*3)
 //ทำให้แสดงลงหน้าเว็บ
 document.getElementById("buy").innerHTML = Lotto
-document.getElementById("result").innerHTML = Math.floor(Math.random()*10)
+document.getElementById("resultnumber").innerHTML = randomN
+if(Lotto == randomN){
+    document.getElementById("resulttext").innerHTML = "ถูกหวย"
+}
+else{
+    document.getElementById("resulttext").innerHTML = "คุณไม่ถูกนะ"
+}
 //boolean
 console.log( 1 == 1)
 console.log("4" == 4)
@@ -20,5 +27,67 @@ console.log(10+10 <= 20)
 //lab 2
 let age = prompt("lab2 กรุณากรอกอายุ")
 if(age > 18){
-    document.getElementById("content18+").innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/bbImKsdEvMM?si=Btgm3BlVF9lblzyl\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+    //ตรง 18 สามารถเอาคลิบมาใส่ได้โดยกด แชร์คลิบ แล้วกด ฝัง
+    document.getElementById("content18+").innerHTML = "18"
 }
+//lab 3 Grade
+let score = prompt("คะแนนของคุณ")
+if(score >=80){
+    document.getElementById("resultGrade").innerHTML = "A"
+}else if(score >=70){
+    document.getElementById("resultGrade").innerHTML = "b"
+}
+else if(score >=60){
+    document.getElementById("resultGrade").innerHTML = "c"
+}
+else if(score >=50){
+    document.getElementById("resultGrade").innerHTML = "d"
+}
+else{
+    document.getElementById("resultGrade").innerHTML = "f"
+}
+
+//for loop
+for(var counter =0; counter <5; counter++){
+    console.log("hello")
+}
+
+//โปรแกรมคำนนวณค่าอาหาร
+let qrt = prompt("จำนวนสินค้า")
+let sum = 0
+for(var i=1; i<=qrt; i++){
+    let item_price = prompt("ราคาสินค้าชิ้นที่"+i)
+    //parseInt = แปลงข้อมูลใน () เป็นจำนวนเต็ม
+    sum = sum + parseInt(item_price)
+    //+= หมายถึงเพิ่มข้อมูลบรรทัดลงไปเรื่อยๆ
+    document.getElementById("price-list").innerHTML += "รายการที่ "+i+":"+item_price+"บาท"+"<br>"//"<br>" = ใสแท็ก html เพือเว้นบบรทัด
+    
+}
+document.getElementById("resultTotal").innerHTML = "ราคารวม "+sum+"บาท"
+
+//โปรแกรมทายหัวก้อย
+let round = prompt("ทายกี่รอบดี")
+var score1 =0
+for(var i = 0; i<round; i++){
+    var answer =prompt("head or koy")
+    var random_answer =""
+    if(Math.floor(Math.random()*10) <= 5){
+        random_answer = "head"
+    }else{
+        random_answer = "koy"
+    }
+    if(answer == random_answer){
+        alert("ถูก")
+        score1 =score1 +1
+    }else{
+        alert("ผิด")
+    }
+    if(answer == random_answer){
+        document.getElementById("game-list").innerHTML += "ครั้งที่ "+i+"คุณตอบ "+answer+" : ออก "+random_answer+"คุณถูก"+"<br>"
+    }else{
+        document.getElementById("game-list").innerHTML += "ครั้งที่ "+i+"คุณตอบ "+answer+" : ออก "+random_answer+"คุณผิด"+"<br>"
+    }
+    console.log(random_answer+ ":" +answer)
+}
+document.getElementById("round").innerHTML = "คุณเล่น "+round+" รอบ"
+document.getElementById("scoreTrue").innerHTML = "คุณถูก "+score1+" รอบ"
