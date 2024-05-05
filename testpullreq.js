@@ -91,11 +91,34 @@ for(var i = 1; i<=round; i++){
 }
 document.getElementById("round").innerHTML = "คุณเล่น "+round+" รอบ"
 document.getElementById("scoreTrue").innerHTML = "คุณถูก "+score1+" รอบ"
-
+//โปรแกรมคำนวนองศา
 function toCelsius()
 {
     let fahrenheit = prompt("fahrenheit")
     let value = (fahrenheit-32)*5/9
-    document.getElementById("answer-section").innerHTML =value
+    return value +" c"
 }
-toCelsius()
+function display(elementId,value){
+    document.getElementById(elementId).innerHTML = value
+}
+function toFah()
+{
+    let celsius = prompt("Celsius")
+    let value = (celsius*9)/5+32
+    document.getElementById("answer-tofahrenhi").innerHTML =value+" f"
+}
+toFah()
+display("answer-tocel",toCelsius(120))
+
+//return
+function sayHello(username,userlastname){
+    return "hello" + username + userlastname
+}
+let userInput = prompt("eanter name")
+let userlastname = prompt("eanter lastname")
+alert(sayHello(userInput,userlastname))
+
+//Event
+function eventSayhello(){
+    alert("กดอีกสิ้")
+}
